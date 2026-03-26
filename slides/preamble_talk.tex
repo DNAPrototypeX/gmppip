@@ -1,0 +1,502 @@
+% serif fonts for mathematics
+\usefonttheme{professionalfonts}
+
+\usepackage{textcase,marvosym,cancel,booktabs,colortbl,nicefrac,ifsym}
+\usepackage{fourier-orns}
+\usepackage{amsmath,amssymb,graphicx,svg,tikz,pgfplots,colonequals,mathtools,subfig,wrapfig,standalone,scalefnt} % MnSymbol
+\usepackage{booktabs,multirow,multicol, tabularx}
+\usepackage{pifont} % for the dingbats in the line search plots
+\usepackage{transparent}
+\usepackage{multido}
+
+%% not used with xetex
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+
+%% Tikz, minted, etc
+\usepackage{soul}
+\usepackage{layouts}
+\usepackage{mleftright}
+\usepackage{nicefrac}
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usepackage[newfloat,cache=false]{minted}
+
+\graphicspath{{figs/}}
+\setlength{\fboxsep}{0pt}
+\renewcommand{\figurename}{}
+
+\makeatletter
+\let\@@magyar@captionfix\relax
+\makeatother
+
+\setminted[python]{
+  mathescape,
+  linenos=true,
+  xleftmargin=10pt,
+  numbersep=5pt,
+  frame=lines,
+  framesep=2mm,
+  fontsize=\fontsize{9pt}{10pt}\selectfont,
+  highlightcolor=Yellow!30,
+  style=emacs,
+  escapeinside=||,
+  beameroverlays=true,
+}
+
+\usetikzlibrary{patterns,positioning,arrows,shapes,shapes.geometric,shadows,fit}
+\usetikzlibrary{decorations.pathmorphing,intersections,backgrounds}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{external}
+% \tikzexternalize[mode=list and make, prefix=tikz/, figure name=output-figure, optimize=false]
+\tikzexternalize[prefix=tikz/, figure name=output-figure, optimize=false]
+\usepgfplotslibrary{groupplots}
+% Single bar legend
+\pgfplotsset{compat=1.11,
+  /pgfplots/ybar legend/.style={
+      /pgfplots/legend image code/.code={%
+          \draw[##1,/tikz/.cd,yshift=-0.25em]
+          (0cm,0cm) rectangle (1ex,0.8em);},
+    },
+}
+
+%% Color scheme for Western University
+\definecolor{WPurple}{RGB}{79,38,131}
+\definecolor{WOrchid}{RGB}{154,100,246}
+\definecolor{WDeep}{RGB}{32,20,54}
+\definecolor{WGrey}{RGB}{129,130,132}
+\definecolor{WYellow}{RGB}{252,240,94}
+\definecolor{WGreen}{RGB}{185,248,118}
+\definecolor{WSky}{RGB}{125,234,250}
+\definecolor{WTiger}{RGB}{240,167,87}
+
+%% Color scheme of the Vector Institute
+\definecolor{VBlue}{RGB}{9,41,74}
+\definecolor{VMagenta}{RGB}{235,0,140}
+
+\setlength{\parindent}{0pt}
+\setlength{\leftmargini}{2ex}
+\setlength{\leftmarginii}{3ex}
+\setlength{\leftmarginiii}{4ex}
+
+\setbeamercolor{alerted text}{fg=WPurple}
+\setbeamercolor{ribboncolor}{fg=Black,bg=WOrchid!20}
+
+\setbeamercolor{normal text}{fg=Black,bg=White}
+\setbeamercolor{structure}{fg=WPurple}
+
+\setbeamercolor{item projected}{use=item,fg=Black,bg=WPurple}
+
+\setbeamercolor*{palette primary}{fg=White,bg=WPurple}
+\setbeamercolor*{palette secondary}{parent=palette primary,use=palette
+  primary,bg=WPurple}
+\setbeamercolor*{palette tertiary}{parent=palette
+  primary,use=palette primary,fg=white,bg=WGrey}
+\setbeamercolor*{palette
+  quaternary}{parent=palette primary,use=palette primary,bg=WGrey}
+
+\setbeamercolor*{block body}{bg=WOrchid!15, fg=Black}
+\setbeamercolor*{block title}{parent=structure,bg=WOrchid,fg=White}
+\setbeamercolor{block body alerted}{bg=Gray,fg=WPurple}
+\setbeamercolor{block title example}{fg=WPurple,bg=White}
+\setbeamercolor{block body example}{fg=Black,bg=White}
+
+\setbeamerfont{block title}{series=\bfseries}
+
+\setbeamercolor{frametitle}{bg=white,fg=WPurple}
+\setbeamercolor{frametitle right}{bg=WPurple}
+\setbeamercolor{framesubtitle}{fg=WOrchid}
+
+\setbeamerfont{framesubtitle}{size*={9}{12}}
+
+\setbeamercolor{title}{fg=WPurple}
+\setbeamercolor{subtitle}{fg=Black}
+\setbeamercolor{author}{fg=Black}
+\setbeamercolor{date}{fg=Black}
+
+\setbeamercolor*{titlelike}{parent=structure}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}[circle]
+
+\setbeamercolor{itemize item}{fg=WPurple}
+\setbeamercolor{itemize subitem}{fg=WPurple}
+\setbeamercolor{itemize subsubitem}{fg=WPurple}
+\setbeamercolor{itemize subsubsubitem}{fg=WPurple}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+\setbeamertemplate{itemize subsubitem}[circle]
+\setbeamertemplate{itemize subsubsubitem}[circle]
+
+
+\renewcommand{\normalsize}{\fontsize{11pt}{15pt}\selectfont}
+\renewcommand{\small}{\fontsize{9pt}{12pt}\selectfont}
+
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\foonotesize}
+
+\setbeamertemplate{footline}{\hfill\color{Black}{\insertframenumber}\hspace{2ex}\null\newline\vspace{2mm}}
+
+\arrayrulecolor{Black}
+
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks,
+  linkcolor={WOrchid},
+  citecolor={WOrchid},
+  urlcolor={WOrchid},
+}
+
+\newcommand{\filltotal}{\hspace{0pt plus 1 filll}}
+
+\newcommand{\titlemark}[1]{
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[draw=none,text=Gray,anchor=north east,yshift=-.8259cm] at (current
+    page.north east) {\footnotesize{#1}};
+  \end{tikzpicture}
+}
+
+\AtBeginEnvironment{figure}{\setcounter{subfigure}{0}}
+\AtBeginEnvironment{frame}{\setcounter{footnote}{0}}
+
+\let\oldfootnotesize\footnotesize
+\renewcommand*{\footnotesize}{\oldfootnotesize\fontsize{7pt}{8pt}\selectfont}
+\renewcommand\footnoterule{}
+
+\newcommand{\graybox}[1]{
+  \tikzexternaldisable%
+  \begin{center}%
+    \tikz{\node[fill=Black,text width=\textwidth]{%
+        \begin{minipage}{1.0\linewidth}%
+          \color{white}
+          \begin{center}%
+            #1
+          \end{center}%
+        \end{minipage}};}%
+  \end{center}%
+  \tikzexternalenable
+}
+
+\newcommand{\divider}{\noindent\makebox[\linewidth]{\rule{\paperwidth}{.4pt}}  }
+
+\newcommand{\paperwhite}{\includegraphics[height=.6\baselineskip]{../text-document_white.png}\hspace{.5em}}
+\newcommand{\paperblack}{\includegraphics[height=.6\baselineskip]{../text-document.png}\hspace{.5em}}
+
+\newcommand{\bookwhite}{\includegraphics[height=.6\baselineskip]{../book-white.png}\hspace{.5em}}
+\newcommand{\bookblack}{\includegraphics[height=.6\baselineskip]{../book-black.png}\hspace{.5em}}
+
+\newcommand{\ribbon}[1]{
+  \begin{beamercolorbox}[wd=\paperwidth,colsep*=.3em,center]{ribboncolor}
+    \setbeamertemplate{itemize items}{\color{black}\starredbullet}
+    \setbeamercolor{structure}{fg=white}
+    \begin{minipage}{1.0\textwidth}%
+      #1
+    \end{minipage}
+  \end{beamercolorbox}
+}
+\setbeamercolor{whiteribboncolor}{fg=black,bg=white}
+\newcommand{\whiteribbon}[1]{
+  \begin{beamercolorbox}[wd=\paperwidth,colsep*=.5em,center,text width=\textwidth]{whiteribboncolor}
+    \setbeamertemplate{itemize items}{\color{black}\starredbullet}
+    \setbeamercolor{structure}{fg=black}
+    \begin{minipage}{\textwidth}%
+      #1
+    \end{minipage}
+  \end{beamercolorbox}
+}
+
+\newcommand{\bfa}[1]{
+  \begin{beamercolorbox}[wd=\paperwidth,colsep*=.5em,center]{white}
+    \setbeamertemplate{itemize items}{\color{black}\starredbullet}
+    \tikzexternaldisable
+    \begin{tikzpicture}
+      \node[signal,minimum width=\paperwidth,draw=Yellow,fill=Yellow,text=black,text width=\textwidth]{
+        \begin{minipage}{\textwidth}%
+          #1
+        \end{minipage}};
+    \end{tikzpicture}
+    \tikzexternalenable
+  \end{beamercolorbox}
+}
+
+\newcommand{\bfi}[1]{
+  \begin{beamercolorbox}[wd=\paperwidth,colsep*=.5em,center,text width=\textwidth]{white}
+    \setbeamertemplate{itemize items}{\color{black}\starredbullet}
+    \tikzexternaldisable
+    \begin{tikzpicture}
+      \node[signal,signal from=west,signal to=nowhere,minimum width=\linewidth,draw=Yellow,fill=Yellow,text=black,signal pointer angle=140]{
+        \begin{minipage}{\textwidth}%
+          #1
+        \end{minipage}};
+    \end{tikzpicture}\hspace{2.5mm}
+    \tikzexternalenable
+  \end{beamercolorbox}
+}
+
+\newcommand{\blackslide}{
+  {\setbeamercolor{background canvas}{bg=WPurple}
+      \begin{frame}[plain]
+        \null
+      \end{frame}
+    }}
+
+
+\newcommand{\blackslidetext}[1]{
+  {
+      \showlogosfalse  % disable normal logos
+      % Add reversed logos for black slides
+      \AddToShipoutPictureFG{
+        \AtPagemyUpperLeft{{\includegraphics[height=0.4cm,keepaspectratio]{assets/western-reversed.eps} \enspace \enspace \includegraphics[height=0.4cm,keepaspectratio]{assets/vector-reversed.png}}}
+      }
+      \setbeamercolor{frametitle}{bg=WPurple,fg=white}
+      \setbeamercolor{background canvas}{bg=WPurple}%
+      \setbeamercolor{structure}{fg=White}%
+      \setbeamercolor{normal text}{fg=White}%
+      \setbeamercolor{body}{fg=White}%
+      \setbeamercolor{itemize item}{fg=White}
+      \setbeamercolor{itemize subitem}{fg=White}
+      \setbeamercolor{itemize subsubitem}{fg=White}
+      \setbeamercolor{itemize item}{fg=White}
+      \setbeamercolor{itemize subitem}{fg=White}
+      \setbeamercolor{itemize subsubitem}{fg=White}
+      \setbeamercolor{itemize/enumerate body}{fg=White}
+      \setbeamercolor{itemize/enumerate subbody}{fg=White}
+      \setbeamercolor{itemize/enumerate subsubbody}{fg=White}
+      \setbeamertemplate{footline}{\hfill\color{White}{\insertframenumber}\hspace{2ex}\null\newline\vspace{2mm}}
+      % Set hyperref colors for black slides
+      \hypersetup{
+        colorlinks,
+        linkcolor={WTiger},
+        citecolor={WTiger},
+        urlcolor={WTiger},
+      }
+      \begin{frame}
+        \color{White} #1
+      \end{frame}
+      % Clear the temporary reversed logos
+      \ClearShipoutPictureFG
+      \AddToShipoutPictureFG{
+        \ifshowlogos
+          \AtPagemyUpperLeft{{\includegraphics[height=0.4cm,keepaspectratio]{assets/western-eps-converted-to.pdf} \enspace \enspace \includegraphics[height=0.4cm,keepaspectratio]{assets/vector_horizontal.pdf}}}
+        \fi
+      }
+      \showlogostrue  % re-enable normal logos
+    }
+}
+
+% logo in the upper right corner
+\usepackage{eso-pic}
+\newif\ifshowlogos
+\showlogostrue  % logos visible by default
+
+\newcommand\AtPagemyUpperLeft[1]{\AtPageLowerLeft{%
+    \put(\LenToUnit{0.77\paperwidth},\LenToUnit{0.92\paperheight}){#1}}}
+\AddToShipoutPictureFG{
+  \ifshowlogos
+    \AtPagemyUpperLeft{{\includegraphics[height=0.4cm,keepaspectratio]{assets/western-eps-converted-to.pdf} \enspace \enspace \includegraphics[height=0.4cm,keepaspectratio]{assets/vector_horizontal.pdf}}}
+  \fi
+}%
+
+%%%%%%%% TiKZ %%%%%%%%
+\usetikzlibrary{arrows,shapes,plotmarks,decorations.pathmorphing}
+\usetikzlibrary{backgrounds,calc,positioning,fadings}
+
+\tikzset{>=stealth'}
+\tikzstyle{graphnode} =
+[circle,draw=black,minimum size=22pt,text centered,text
+width=22pt,inner sep=0pt]
+\tikzstyle{var}   =[graphnode,fill=white]
+\tikzstyle{obs}   =[graphnode,fill=black,text=white]
+\tikzstyle{act}   =[rectangle,draw=black,text=white,minimum
+size=22pt,text centered, text width=22pt,inner sep=0pt]
+\tikzstyle{fac}   =[rectangle,draw=black,fill=black!25,minimum size=5pt]
+\tikzstyle{facprior} =[rectangle,draw=black,fill=black,text=white,minimum size=5pt]
+\tikzstyle{edge}  =[draw=white,double=black,thick,-]
+\tikzstyle{prior} =[rectangle, draw=black, fill=black, minimum size=
+5pt, inner sep=0pt]
+\tikzstyle{dirprior} = [circle, draw=black, fill=black, minimum
+size=5pt, inner sep=0pt]
+
+\tikzfading[name=fade top,bottom color=transparent!0,top color=transparent!75]
+
+% to avoid warnings, copy only two symbols from stmaryrd
+\DeclareSymbolFont{stmry}{U}{stmry}{m}{n}
+\DeclareMathSymbol\leftarrowtriangle\mathrel{stmry}{"5E}
+\DeclareMathSymbol\rightarrowtriangle\mathrel{stmry}{"5F}
+\DeclareMathSymbol\sslash\mathrel{stmry}{"0C}
+\DeclareMathSymbol\obar\mathrel{stmry}{"3A}
+\DeclareMathSymbol\otimes\mathrel{stmry}{"0F}
+\DeclareMathSymbol\ominus\mathrel{stmry}{"17}
+\DeclareMathSymbol\minuso\mathrel{stmry}{"0A}
+\renewcommand{\gets}{\operatorname*{\leftarrowtriangle}}
+\renewcommand{\to}{\operatorname*{\rightarrowtriangle}}
+
+\usetikzlibrary{arrows,shapes,plotmarks,pgfplots.colormaps}
+\usetikzlibrary{pgfplots.groupplots}
+\pgfplotsset{compat=newest}
+\pgfplotsset{
+  every axis legend/.append style =
+    {
+      cells = { anchor = east },
+      draw  = none
+    },
+}
+\makeatletter
+\pgfplotsset{
+  range frame/.style={
+      tick align = outside,
+      axis line style={opacity=0},
+      after end axis/.code={
+          \draw ({rel axis cs:0,0}-|{axis cs:\pgfplots@data@xmin,0}) -- ({rel axis cs:0,0}-|{axis cs:\pgfplots@data@xmax,0});
+          \draw ({rel axis cs:0,0}|-{axis cs:0,\pgfplots@data@ymin}) -- ({rel axis cs:0,0}|-{axis cs:0,\pgfplots@data@ymax});
+        }
+    }
+}
+\makeatother
+
+\pgfkeys{/pgfplots/mystyle/.style={
+      % semithick,
+      % tick style={major tick length=4pt,semithick,gray},
+      xtick align = inside,
+      ytick align = inside
+    }}
+
+\pgfkeys{/pgfplots/mytuftestyle/.style={
+      semithick,
+      tick style={major tick length=4pt,semithick,black},
+      separate axis lines,
+      axis x line*=bottom,
+      axis x line shift=5pt,
+      xlabel shift=0pt,
+      axis y line*=left,
+      tick align = outside,
+      axis y line shift=5pt,
+      ylabel shift=0pt}}
+
+
+%%%% THEOREM environments
+% \newtheorem{defi}{Definition}[section]
+% \newtheorem{theo}[defi]{Theorem}
+% \newtheorem{cor}[defi]{Corollary}
+% \newtheorem{lemm}[defi]{Lemma}
+% \newtheorem{prob}[defi]{Problem}
+
+\newtheorem{proposition}{Proposition}[section]
+% \newtheorem{lemma}[proposition]{Lemma}
+% \newtheorem{theorem}[proposition]{Theorem}
+% \newtheorem{corollary}[proposition]{Corollary}
+
+\newlength{\figureheight}
+\newlength{\figurewidth}
+\newlength{\figheight}
+\newlength{\figwidth}
+
+% algorithms
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\algrenewcommand{\algorithmiccomment}[1]{\hfill {$\sslash$ \scriptsize #1}}
+\algrenewcommand\alglinenumber[1]{\tiny #1}
+
+
+% %%%%%% adding vertical bars to algorithmicx. Based on a response at
+% % http://tex.stackexchange.com/questions/52473/is-it-possible-to-have-connecting-loop-lines-like-algorithm2e-in-algorithmic/52778#52778
+\makeatletter
+% This is the vertical rule that is inserted
+\def\therule{\makebox[\algorithmicindent][l]{\hspace*{.5em}\vrule height .75\baselineskip depth .25\baselineskip}}%
+
+\newtoks\therules% Contains rules
+\therules={}% Start with empty token list
+\def\appendto#1#2{\expandafter#1\expandafter{\the#1#2}}% Append to token list
+\def\gobblefirst#1{% Remove (first) from token list
+  #1\expandafter\expandafter\expandafter{\expandafter\@gobble\the#1}}%
+\def\LState{\State\unskip\the\therules}% New line-state
+\def\pushindent{\appendto\therules\therule}%
+\def\popindent{\gobblefirst\therules}%
+\def\printindent{\unskip\the\therules}%
+\def\printandpush{\printindent\pushindent}%
+\def\popandprint{\popindent\printindent}%
+
+%      ***      DECLARED LOOPS      ***
+% (from algpseudocode.sty)
+\algdef{SE}[WHILE]{While}{EndWhile}[1]
+{\printandpush\algorithmicwhile\ #1\ \algorithmicdo}
+{\popandprint\algorithmicend\ \algorithmicwhile}%
+\algdef{SE}[FOR]{For}{EndFor}[1]
+{\printandpush\algorithmicfor\ #1\ \algorithmicdo}
+{\popandprint\algorithmicend\ \algorithmicfor}%
+\algdef{S}[FOR]{ForAll}[1]
+{\printindent\algorithmicforall\ #1\ \algorithmicdo}%
+\algdef{SE}[LOOP]{Loop}{EndLoop}
+{\printandpush\algorithmicloop}
+{\popandprint\algorithmicend\ \algorithmicloop}%
+\algdef{SE}[REPEAT]{Repeat}{Until}
+{\printandpush\algorithmicrepeat}[1]
+{\popandprint\algorithmicuntil\ #1}%
+\algdef{SE}[IF]{If}{EndIf}[1]
+{\printandpush\algorithmicif\ #1\ \algorithmicthen}
+{\popandprint\algorithmicend\ \algorithmicif}%
+\algdef{C}[IF]{IF}{ElsIf}[1]
+{\popandprint\pushindent\algorithmicelse\ \algorithmicif\ #1\ \algorithmicthen}%
+\algdef{Ce}[ELSE]{IF}{Else}{EndIf}
+{\popandprint\pushindent\algorithmicelse}%
+\algdef{SE}[PROCEDURE]{Procedure}{EndProcedure}[2]
+{\printandpush\algorithmicprocedure\ \textproc{#1}\ifthenelse{\equal{#2}{}}{}{(#2)}}%
+{\popandprint\algorithmicend\ \algorithmicprocedure}%
+\algdef{SE}[FUNCTION]{Function}{EndFunction}[2]
+{\printandpush\algorithmicfunction\ \textproc{#1}\ifthenelse{\equal{#2}{}}{}{(#2)}}%
+{\popandprint\algorithmicend\ \algorithmicfunction}%
+\makeatother
+
+%%%% fiddling with lists:
+% \usepackage{enumitem}
+% try: \begin{description}[leftmargin=\parindent,labelindent=\parindent] ...
+
+%%%% FONTS
+\usepackage{lmodern}
+\usepackage{sfmath}
+\usepackage[T1]{fontenc}
+
+\usepackage[sfdefault,condensed]{roboto}
+\usepackage{inconsolata}
+
+% Fix broken implication symbol
+\DeclareSymbolFont{legacymaths}{OT1}{cmr}{m}{n}
+\SetSymbolFont{legacymaths}{bold}{OT1}{cmr}{bx}{n}
+\DeclareSymbolFont{FooFont}{OT1}{cmr}{m}{n}
+\DeclareMathSymbol{\fooEqual}{\mathrel}{FooFont}{`=}
+\renewcommand{\Relbar}{\mathrel\fooEqual}
+
+% special \vneq that works with sfmath
+\makeatletter
+\newcommand*{\vneq}{%
+  \mathrel{%
+    \mathpalette\@vneq{=}%
+  }%
+}
+\newcommand*{\@vneq}[2]{%
+  % #1: math style (\displaystyle, \textstyle, ...)
+  % #2: symbol (=, ...)
+  \sbox0{\raisebox{\depth}{$#1\neq$}}%
+  \sbox2{\raisebox{\depth}{$#1|\m@th$}}%
+  \ifdim\ht2>\ht0 %
+    \sbox2{\resizebox{\vneqxscale\width}{\vneqyscale\ht0}{\unhbox2}}%
+  \fi
+  \sbox2{$\m@th#1\vcenter{\copy2}$}%
+  \ooalign{%
+    \hfil\phantom{\copy2}\hfil\cr
+    \hfil$#1#2\m@th$\hfil\cr
+    \hfil\copy2\hfil\cr
+  }%
+}
+\newcommand*{\vneqxscale}{1}
+\newcommand*{\vneqyscale}{.8}
+\makeatother
+
+\renewcommand{\to}{\rightarrow}
+
+\let\OLDitemize\itemize
+\renewcommand\itemize{\OLDitemize\addtolength{\itemsep}{0.25em}}

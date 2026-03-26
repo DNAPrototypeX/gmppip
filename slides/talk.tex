@@ -1,0 +1,47 @@
+% !TEX options=--shell-escape
+
+\documentclass[11pt,usepdftitle=false,aspectratio=169,dvipsnames]{beamer}
+% \documentclass[11pt,usepdftitle=false,aspectratio=169,dvipsnames,handout]{beamer}
+
+\input{preamble_talk.tex}
+\input{math_commands.tex}
+
+
+\begin{document}
+
+\tikzexternaldisable
+\showlogosfalse  % disable logos
+
+\begin{frame}
+  % Front matters
+  \vspace{3em}
+  \title{\LARGE \bf Generative Models for \\ Protein-Protein Interaction Prediction}
+  \author{\bfseries {\color{WGrey} Paul Moore}}
+  \date{}
+
+  \maketitle
+
+  \vspace{0em}
+  {
+    \centering
+
+    \includegraphics[height=0.075\textheight]{assets/western-eps-converted-to.pdf}
+    \qquad\qquad
+    \includegraphics[height=0.075\textheight]{assets/vector_horizontal.pdf}
+
+    \par
+  }
+
+  \thispagestyle{empty}
+  \setcounter{framenumber}{0}
+\end{frame}
+
+\showlogostrue  % disable logos
+\tikzexternalenable
+
+
+\input{contents/intro.tex}
+
+\input{contents/computational_ppi.tex}
+
+\end{document}
